@@ -38,6 +38,16 @@ app.use(flash()); //for flash messages
 
 // Mongoose connect ===============================================================
 
+mongoose
+  .connect(config.dbUrl, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("DB Connected Successfully");
+  })
+  .catch(err => console.log(err));
 
 // Express Session Setup ==========================================================
 app.use(
